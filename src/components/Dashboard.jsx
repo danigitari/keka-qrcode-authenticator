@@ -1,7 +1,7 @@
 import React from "react";
 import { Dropdown, Avatar } from "flowbite-react";
-import { data } from "./data";
-import "./index.css";
+import { data } from "../data";
+import "../index.css";
 import BarChart from "./BarChart.jsx";
 import { useState, useEffect } from "react";
 

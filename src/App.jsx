@@ -1,11 +1,14 @@
-import { Routes, Route } from "react-router-dom";
-import Nav from "./Dashboard.jsx";
-import SidebarNavigation from "./SidebarNavigation.jsx";
+import { Route, Routes } from "react-router-dom";
+import SidebarNavigation from "./components/SidebarNavigation.jsx";
+import Login from "./components/Login.jsx";
 function App() {
   return (
     <>
-      <div className="w-screen">
-        <SidebarNavigation />
+      <div>
+        <Routes>
+          <Route path="/" element={<Login/>}></Route>
+          <Route path="/dashboard" element={<SidebarNavigation />}></Route>
+        </Routes>
       </div>
     </>
   );

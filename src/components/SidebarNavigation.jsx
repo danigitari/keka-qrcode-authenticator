@@ -1,7 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Dashboard from "./Dashboard.jsx";
-import ItemsTable from "./ItemsTable.jsx";
+import { Routes, Route } from "react-router-dom"; 
 import { useState, useEffect } from "react";
 
 function SidebarNavigation() {
@@ -48,7 +46,7 @@ function SidebarNavigation() {
                 key={index}
                 className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-100 text-sm items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
-                  index === 0 && "bg-light-white"
+                  index === 0 && "bg-light-white" 
                 } `}
               >
                 <i data-feather={Menu.src}></i>
@@ -62,10 +60,7 @@ function SidebarNavigation() {
           </ul>
         </aside>
 
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/items" element={<ItemsTable />}></Route>
-        </Routes>
+  
       </div>
     </>
   );
