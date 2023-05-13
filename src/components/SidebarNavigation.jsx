@@ -1,5 +1,7 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom"; 
+import { Routes, Route , Link} from "react-router-dom";
+import Dashboard from "./Dashboard.jsx";
+import ItemsTable from "./ItemsTable.jsx";
 import { useState, useEffect } from "react";
 
 function SidebarNavigation() {
@@ -25,14 +27,14 @@ function SidebarNavigation() {
             open ? " w-3/4 sm:w-72" : "w-20 "
           } bg-kekaBlue h-screen p-5  pt-8 sticky top-0 duration-300`}
         >
-          {" "}
-          <span
-            onClick={() => setOpen(!open)}
-            className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+            <span
+              onClick={() => setOpen(!open)}
+              className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full bg-white ${!open && "rotate-180"}`}
-          >
-            <i data-feather="chevron-left"> </i>
-          </span>
+            >
+              <i data-feather="chevron-left"> </i>
+            </span>
+        
           <div className="flex gap-x-4 items-center justify-center">
             <img
               src="../logo.jpeg"
@@ -46,21 +48,26 @@ function SidebarNavigation() {
                 key={index}
                 className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-100 text-sm items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
-                  index === 0 && "bg-light-white" 
+                  index === 0 && "bg-light-white"
                 } `}
-              >
+              > 
                 <i data-feather={Menu.src}></i>
+                
                 <span
                   className={`${!open && "hidden"} origin-left duration-200`}
                 >
-                  {Menu.title}
+                  <Link to={Menu.title === "Dashboard" ? "/dashboard" : `/dashboard/${Menu.title.toLowerCase()}`}>
+                  {Menu.title} </Link>
                 </span>
               </li>
             ))}
           </ul>
         </aside>
 
-  
+        <Routes>
+          <Route path="/" element={<Dashboard />}></Route>
+          <Route path="/items" element={<ItemsTable />}></Route>
+        </Routes>
       </div>
     </>
   );
