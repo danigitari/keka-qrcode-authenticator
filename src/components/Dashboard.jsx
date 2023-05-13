@@ -4,9 +4,13 @@ import { data } from "../data";
 import "../index.css";
 import BarChart from "./BarChart.jsx";
 import { useState, useEffect } from "react";
+import { UserAuth } from "../context/authContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const [open, setOpen] = useState(false);
+  const { user, logout } = UserAuth();
+
   const [scanData, setScanData] = useState({
     labels: data.map((item) => item.month),
     datasets: [
@@ -17,15 +21,16 @@ function Dashboard() {
       },
     ],
   });
+  const Navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+     await logout();
+     Navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  const Menus = [
-    { title: "Dashboard", src: "file-text" },
-    { title: "Inbox", src: "mail" },
-    { title: "Accounts", src: "layers", gap: true },
-    { title: "Schedule ", src: "list" },
-    { title: "Analytics", src: "folder" },
-    { title: "Files ", src: "file", gap: true },
-  ];
   useEffect(() => {
     feather.replace();
   });
@@ -62,14 +67,17 @@ function Dashboard() {
                   Daniel Gitari
                 </span>
                 <span className="block truncate text-sm font-medium">
-                  name@flowbite.com
+                  {user && user.email}
                 </span>
               </Dropdown.Header>
               <Dropdown.Item>Dashboard</Dropdown.Item>
               <Dropdown.Item>Settings</Dropdown.Item>
               <Dropdown.Item>Earnings</Dropdown.Item>
               <Dropdown.Divider />
-              <Dropdown.Item>Sign out</Dropdown.Item>
+              <Dropdown.Item>
+                {" "}
+                <div onClick={handleLogout}> Sign out </div>
+              </Dropdown.Item>
             </Dropdown>
           </div>
           <div
