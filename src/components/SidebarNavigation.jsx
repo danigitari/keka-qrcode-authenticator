@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Outlet } from "react-router-dom";
 import Dashboard from "./Dashboard.jsx";
 import ItemsTable from "./ItemsTable.jsx";
 import { useState, useEffect } from "react";
@@ -77,10 +77,12 @@ function SidebarNavigation() {
           </ul>
         </aside>
 
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Dashboard />}></Route>
-          {/* <Route path="/items" element={<ItemsTable />}></Route> */}
-        </Routes>
+          <Route path="/items" element={<ItemsTable />}></Route>
+        </Routes> */}
+
+        <Outlet />
       </div>
     </>
   );
