@@ -64,7 +64,7 @@ function Dashboard() {
                       : "flex text-md text-gray-400"
                   }`}
                 >
-                  Daniel Gitari
+                  {user && user.email} <i data-feather="chevron-down"></i>
                 </span>
                 <span className="block truncate text-sm font-medium">
                   {user && user.email}
@@ -202,7 +202,6 @@ function Dashboard() {
               </p>
               <div className="p-2">
                 <iframe
-                  class="gmap_iframe"
                   width="100%"
                   height="70%"
                   frameborder="0"

@@ -1,11 +1,16 @@
 import React from "react";
-import { Routes, Route , Link} from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Dashboard from "./Dashboard.jsx";
 import ItemsTable from "./ItemsTable.jsx";
 import { useState, useEffect } from "react";
 
 function SidebarNavigation() {
   const [open, setOpen] = useState(true);
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location]);
+  
   const Menus = [
     { title: "Dashboard", src: "file-text" },
     { title: "Items", src: "mail", gap: true },
@@ -27,14 +32,14 @@ function SidebarNavigation() {
             open ? " w-3/4 sm:w-72" : "w-20 "
           } bg-kekaBlue h-screen p-5  pt-8 sticky top-0 duration-300`}
         >
-            <span
-              onClick={() => setOpen(!open)}
-              className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+          <span
+            onClick={() => setOpen(!open)}
+            className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full bg-white ${!open && "rotate-180"}`}
-            >
-              <i data-feather="chevron-left"> </i>
-            </span>
-        
+          >
+            <i data-feather="chevron-left"> </i>
+          </span>
+
           <div className="flex gap-x-4 items-center justify-center">
             <img
               src="../logo.jpeg"
@@ -44,29 +49,37 @@ function SidebarNavigation() {
           </div>
           <ul className="pt-6">
             {Menus.map((Menu, index) => (
-              <li
-                key={index}
-                className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-100 text-sm items-center gap-x-4 
+              <Link
+                to={
+                  Menu.title === "Dashboard"
+                    ? "/dashboard"
+                    : `/dashboard/${Menu.title.toLowerCase()}`
+                }
+              >
+                <li
+                  key={index}
+                  className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-100 text-sm items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
-                  index === 0 && "bg-light-white"
-                } `}
-              > 
-                <i data-feather={Menu.src}></i>
-                
-                <span
-                  className={`${!open && "hidden"} origin-left duration-200`}
+                    location.pathname ===
+                      "/" + Menu.title.toLocaleLowerCase() && "bg-light-white"
+                  } `}
                 >
-                  <Link to={Menu.title === "Dashboard" ? "/dashboard" : `/dashboard/${Menu.title.toLowerCase()}`}>
-                  {Menu.title} </Link>
-                </span>
-              </li>
+                  <i data-feather={Menu.src}></i>
+
+                  <span
+                    className={`${!open && "hidden"} origin-left duration-200`}
+                  >
+                    {Menu.title}
+                  </span>
+                </li>{" "}
+              </Link>
             ))}
           </ul>
         </aside>
 
         <Routes>
           <Route path="/" element={<Dashboard />}></Route>
-          <Route path="/items" element={<ItemsTable />}></Route>
+          {/* <Route path="/items" element={<ItemsTable />}></Route> */}
         </Routes>
       </div>
     </>

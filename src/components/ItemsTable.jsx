@@ -37,8 +37,8 @@ function ItemsTable() {
     ];
   return (
     <div>
-      <div className="flex justify-center pr-20">
-        {" "}
+      <div className="flex justify-center m-20 p-20">
+
         <DataTable columns={columns} data={data}></DataTable>
       </div>
     </div>
