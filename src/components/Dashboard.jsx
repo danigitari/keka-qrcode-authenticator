@@ -86,7 +86,7 @@ function Dashboard() {
             } text-md text-md text-gray-400 font-[13px] px-2 `}
           >
             {" "}
-            Daniel Gitari
+           { user.email}
           </div>
         </div>
 

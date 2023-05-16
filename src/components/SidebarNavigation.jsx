@@ -61,7 +61,7 @@ function SidebarNavigation() {
                   className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-100 text-sm items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                     location.pathname ===
-                      "/" + Menu.title.toLocaleLowerCase() && "bg-light-white"
+                      "/dashboard/" + Menu.title.toLocaleLowerCase() && "bg-light-white"
                   } `}
                 >
                   <i data-feather={Menu.src}></i>
