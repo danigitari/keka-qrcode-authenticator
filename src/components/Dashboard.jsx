@@ -90,7 +90,7 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className=" bg-gray-100  ">
+        <div className=" bg-gray-200  h-[90vh]">
           <div
             className={` ${
               open ? " hidden sm:flex " : "flex "
