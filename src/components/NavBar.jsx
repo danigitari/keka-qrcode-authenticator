@@ -1,5 +1,5 @@
 import React from 'react'
-
+// bs
 function NavBar() {
   return (
     <div className="flex items-center justify-end relative  px-5 py-3">
