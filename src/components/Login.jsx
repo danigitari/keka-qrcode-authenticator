@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { UserAuth } from "../context/authContext";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ function Login() {
       Navigate("/dashboard");
     } catch (error) {
       setError(error.message);
-        console.log(error.message);
+      console.log(error.message);
     }
   };
   return (
@@ -58,8 +58,6 @@ function Login() {
                     required
                   />
                 </div>
-
-
 
                 <div className="flex justify-between">
                   <button

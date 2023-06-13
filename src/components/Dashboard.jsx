@@ -24,8 +24,8 @@ function Dashboard() {
   const Navigate = useNavigate();
   const handleLogout = async () => {
     try {
-     await logout();
-     Navigate("/");
+      await logout();
+      Navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -86,7 +86,7 @@ function Dashboard() {
             } text-md text-md text-gray-400 font-[13px] px-2 `}
           >
             {" "}
-           { user.email}
+            {user.email}
           </div>
         </div>
 

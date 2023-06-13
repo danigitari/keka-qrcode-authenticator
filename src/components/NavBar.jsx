@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function NavBar() {
   return (
@@ -56,4 +56,4 @@ function NavBar() {
   );
 }
 
-export default NavBar
+export default NavBar;
