@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { UserAuth } from "../context/authContext";
-import { Link , useNavigate} from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -9,19 +8,18 @@ function Login() {
   const [error, setError] = useState("");
   const Navigate = useNavigate();
 
-
   const { createUser } = UserAuth();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    Navigate("/dashboard"); 
- 
+    Navigate("/dashboard");
+
     setError("");
-    
+
     try {
       await createUser(email, password);
     } catch (error) {
       setError();
-         console.log(error.message);
+      console.log(error.message);
     }
   };
   return (
@@ -61,7 +59,6 @@ function Login() {
                     required
                   />
                 </div>
-
 
                 <div className="flex justify-between">
                   <button

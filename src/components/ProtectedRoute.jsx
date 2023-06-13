@@ -8,7 +8,6 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/" />;
   }
 
-
   return children;
 };
 

@@ -10,7 +10,7 @@ function SidebarNavigation() {
   useEffect(() => {
     console.log(location.pathname);
   }, [location]);
-  
+
   const Menus = [
     { title: "Dashboard", src: "file-text" },
     { title: "Items", src: "mail", gap: true },
@@ -61,7 +61,8 @@ function SidebarNavigation() {
                   className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-100 text-sm items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                     location.pathname ===
-                      "/dashboard/" + Menu.title.toLocaleLowerCase() && "bg-light-white"
+                      "/dashboard/" + Menu.title.toLocaleLowerCase() &&
+                    "bg-light-white"
                   } `}
                 >
                   <i data-feather={Menu.src}></i>
