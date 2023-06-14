@@ -11,7 +11,6 @@ function SidebarNavigation() {
     console.log(location.pathname);
   }, [location]);
 
-
   const Menus = [
     { title: "Dashboard", src: "file-text" },
     { title: "Items", src: "mail", gap: true },
@@ -23,7 +22,7 @@ function SidebarNavigation() {
   useEffect(() => {
     feather.replace();
   });
-  
+
   return (
     <>
       <div className="flex max-w-screen h-screen">
@@ -76,8 +75,9 @@ function SidebarNavigation() {
           </ul>
         </aside>
         <div
-          className={` ${open ? "hidden md:block" : "block"} overflow-auto w-full`}
-         
+          className={` ${
+            open ? "hidden md:block" : "block"
+          } overflow-auto w-full`}
         >
           <Outlet />
         </div>
