@@ -212,7 +212,7 @@ function Dashboard() {
               </p>
               <div className="p-2 w-1/2">
                 <iframe
-                  width="50%"
+                  width="100%"
                   height="100 %"
                   frameborder="0"
                   scrolling="yes"
