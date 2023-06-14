@@ -11,6 +11,7 @@ function SidebarNavigation() {
     console.log(location.pathname);
   }, [location]);
 
+
   const Menus = [
     { title: "Dashboard", src: "file-text" },
     { title: "Items", src: "mail", gap: true },
@@ -22,15 +23,14 @@ function SidebarNavigation() {
   useEffect(() => {
     feather.replace();
   });
-
+  
   return (
     <>
-      {" "}
-      <div className="flex w-full ">
+      <div className="flex max-w-screen h-screen">
         <aside
           className={` ${
-            open ? " w-3/4 sm:w-72" : "w-20 "
-          } bg-kekaBlue h-screen p-5  pt-8 sticky top-0 duration-300`}
+            open ? "  w-3/4 md:w-72" : "w-20 "
+          } bg-kekaBlue  p-5 pt-8 sticky top-0 duration-300`}
         >
           <span
             onClick={() => setOpen(!open)}
@@ -39,7 +39,6 @@ function SidebarNavigation() {
           >
             <i data-feather="chevron-left"> </i>
           </span>
-
           <div className="flex gap-x-4 items-center justify-center">
             <img
               src="../logo.jpeg"
@@ -66,7 +65,6 @@ function SidebarNavigation() {
                   } `}
                 >
                   <i data-feather={Menu.src}></i>
-
                   <span
                     className={`${!open && "hidden"} origin-left duration-200`}
                   >
@@ -77,13 +75,12 @@ function SidebarNavigation() {
             ))}
           </ul>
         </aside>
-
-        {/* <Routes>
-          <Route path="/" element={<Dashboard />}></Route>
-          <Route path="/items" element={<ItemsTable />}></Route>
-        </Routes> */}
-
-        <Outlet />
+        <div
+          className={` ${open ? "hidden md:block" : "block"} overflow-auto w-full`}
+         
+        >
+          <Outlet />
+        </div>
       </div>
     </>
   );

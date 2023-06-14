@@ -21,6 +21,46 @@ function Dashboard() {
       },
     ],
   });
+  const [series, setSeries] = useState({
+    name: "STOCK ABC",
+    data: series.monthDataSeries1.prices,
+  });
+
+  const [options, setOptions] = useState({
+    chart: {
+      type: "area",
+      height: 350,
+      zoom: {
+        enabled: false,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      curve: "straight",
+    },
+
+    title: {
+      text: "Fundamental Analysis of Stocks",
+      align: "left",
+    },
+    subtitle: {
+      text: "Price Movements",
+      align: "left",
+    },
+    labels: series.monthDataSeries1.dates,
+    xaxis: {
+      type: "datetime",
+    },
+    yaxis: {
+      opposite: true,
+    },
+    legend: {
+      horizontalAlign: "left",
+    },
+  });
+
   const Navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -90,97 +130,102 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className=" bg-gray-200  h-[90vh]">
+        <div className=" bg-gray-200">
           <div
             className={` ${
               open ? " hidden sm:flex " : "flex "
-            } flex flex-row flex-wrap justify-around items-center `}
+            } flex flex-row flex-wrap justify-around `}
           >
-            <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
-              <div className="row-span-1">
-                {" "}
-                <div className="flex justify-end p-2 text-green-500 text-sm ">
-                  <i data-feather="chevron-up" className="text-xs "></i>
-                  <p className=""> + 2 % </p>
+            <div className="one flex flex-wrap justify-around gap-x-12">
+              {" "}
+              <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
+                <div className="row-span-1">
+                  {" "}
+                  <div className="flex justify-end p-2 text-green-500 text-sm ">
+                    <i data-feather="chevron-up" className="text-xs "></i>
+                    <p className=""> + 2 % </p>
+                  </div>
+                </div>
+                <div className="row-span-1"> </div>
+                <div className="row-span-1"> </div>
+                <div className="row-span-1">
+                  {" "}
+                  <div className="flex flex-col justify-start p-2 ">
+                    {" "}
+                    <span className="text-3xl mb-1">7 </span>{" "}
+                    <span className="text-md text-gray-400"> scans today</span>{" "}
+                  </div>
                 </div>
               </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1">
-                {" "}
-                <div className="flex flex-col justify-start p-2 ">
+              <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
+                <div className="row-span-1">
                   {" "}
-                  <span className="text-3xl mb-1">7 </span>{" "}
-                  <span className="text-md text-gray-400"> scans today</span>{" "}
+                  <div className="flex justify-end p-2 text-green-500 text-sm ">
+                    <i
+                      data-feather="chevron-up"
+                      className="text-xs font-extrabold"
+                    ></i>
+                    + 2%
+                  </div>
+                </div>
+                <div className="row-span-1"> </div>
+                <div className="row-span-1"> </div>
+                <div className="row-span-1">
+                  {" "}
+                  <div className="flex flex-col justify-start p-2 ">
+                    {" "}
+                    <span className="text-3xl mb-1">575 </span>{" "}
+                    <span className="text-md text-gray-400">
+                      {" "}
+                      scans this week
+                    </span>{" "}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
-              <div className="row-span-1">
-                {" "}
-                <div className="flex justify-end p-2 text-green-500 text-sm ">
-                  <i
-                    data-feather="chevron-up"
-                    className="text-xs font-extrabold"
-                  ></i>
-                  + 2%
-                </div>
-              </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1">
-                {" "}
-                <div className="flex flex-col justify-start p-2 ">
+            <div className="two flex flex-wrap justify-around  gap-x-12">
+              <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
+                <div className="row-span-1">
                   {" "}
-                  <span className="text-3xl mb-1">575 </span>{" "}
-                  <span className="text-md text-gray-400">
-                    {" "}
-                    scans this week
-                  </span>{" "}
+                  <div className="flex justify-end py-2 px-4 text-red-500 ">
+                    <i data-feather="chevron-down" className="text-sm"></i>
+                    <span className="text-md"> 8% </span>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
-              <div className="row-span-1">
-                {" "}
-                <div className="flex justify-end py-2 px-4 text-red-500 ">
-                  <i data-feather="chevron-down" className="text-sm"></i>
-                  <span className="text-md"> 8% </span>
-                </div>
-              </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1">
-                {" "}
-                <div className="flex flex-col justify-start p-2 ">
+                <div className="row-span-1"> </div>
+                <div className="row-span-1"> </div>
+                <div className="row-span-1">
                   {" "}
-                  <span className="text-3xl mb-1">1 </span>{" "}
-                  <span className="text-md text-gray-400">
+                  <div className="flex flex-col justify-start p-2 ">
                     {" "}
-                    fake scans this week
-                  </span>{" "}
+                    <span className="text-3xl mb-1">1 </span>{" "}
+                    <span className="text-md text-gray-400">
+                      {" "}
+                      fake scans this week
+                    </span>{" "}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
-              <div className="row-span-1">
-                {" "}
-                <div className="flex justify-end p-2 text-green-500 text-sm ">
-                  {/* <i data-feather="chevron-up" className="text-xs"></i> */}+
-                  2 this week
-                </div>
-              </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1">
-                {" "}
-                <div className="flex flex-col justify-start p-2 ">
+              <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
+                <div className="row-span-1">
                   {" "}
-                  <span className="text-3xl mb-1"> 205 </span>{" "}
-                  <span className="text-md text-gray-400">
+                  <div className="flex justify-end p-2 text-green-500 text-sm ">
+                    {/* <i data-feather="chevron-up" className="text-xs"></i> */}
+                    + 2 this week
+                  </div>
+                </div>
+                <div className="row-span-1"> </div>
+                <div className="row-span-1"> </div>
+                <div className="row-span-1">
+                  {" "}
+                  <div className="flex flex-col justify-start p-2 ">
                     {" "}
-                    Items registered
-                  </span>{" "}
+                    <span className="text-3xl mb-1"> 205 </span>{" "}
+                    <span className="text-md text-gray-400">
+                      {" "}
+                      Items registered
+                    </span>{" "}
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,18 +237,19 @@ function Dashboard() {
                 : " flex flex-wrap justify-around "
             } `}
           >
-            <div className="bg-white flex-1 w-9/10  md:w-1/2 px-5 m-5 rounded-lg shadow-md">
-              <BarChart data={scanData} />
+            <div className="bg-white flex-1 w-1/2 h-[300px]  md:w-1/2 px-5 m-5 rounded-lg shadow-md">
+              <BarChart data={scanData} className="h-[500px]" />
             </div>
+
             <div className="shadow-md  w-4/5 md:w-1/3 bg-white px-5 m-5 rounded-lg ">
               <p className="text-gray-400 text-md p-2">
                 {" "}
                 last fake scan location
               </p>
-              <div className="p-2">
+              <div className="p-2 w-1/2">
                 <iframe
-                  width="100%"
-                  height="70%"
+                  width="50%"
+                  height="100 %"
                   frameborder="0"
                   scrolling="yes"
                   marginheight="0"
