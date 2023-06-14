@@ -5,10 +5,10 @@ import "../index.css";
 import BarChart from "./BarChart.jsx";
 import { useState, useEffect } from "react";
 import { UserAuth } from "../context/authContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
-  
+
   const [open, setOpen] = useState(false);
   const { user, logout } = UserAuth();
 
