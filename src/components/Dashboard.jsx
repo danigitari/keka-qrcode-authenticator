@@ -1,12 +1,13 @@
 import React from "react";
-import { Dropdown, Avatar } from "flowbite-react";
+
 import { data } from "../data";
 import "../index.css";
 import BarChart from "./BarChart.jsx";
 import { useState, useEffect } from "react";
 import { UserAuth } from "../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,  useLocation } from "react-router-dom";
 import MyChartComponent from "./MyChartComponent.jsx";
+
 
 function Dashboard() {
 
@@ -25,6 +26,7 @@ function Dashboard() {
   });
 
   const Navigate = useNavigate();
+  const location = useLocation();
   const handleLogout = async () => {
     try {
       await logout();
@@ -41,59 +43,10 @@ function Dashboard() {
   return (
     <>
       <div className=" flex-1 rounded-lg  ">
-        <div className="flex items-center justify-end relative  px-5 py-3">
-          <div
-            className={` ${
-              open ? "hidden md:flex justify-end" : "flex justify-end "
-            }`}
-          >
-            <Dropdown
-              label={
-                <Avatar
-                  alt="User settings"
-                  img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                  rounded={true}
-                  className="rounded-full"
-                />
-              }
-              arrowIcon={false}
-              inline={true}
-            >
-              <Dropdown.Header>
-                <span
-                  className={` ${
-                    open
-                      ? "hidden sm:flex text-md text-gray-400"
-                      : "flex text-md text-gray-400"
-                  }`}
-                >
-                  {user && user.email} <i data-feather="chevron-down"></i>
-                </span>
-                <span className="block truncate text-sm font-medium">
-                  {user && user.email}
-                </span>
-              </Dropdown.Header>
-              <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item>Settings</Dropdown.Item>
-              <Dropdown.Item>Earnings</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Item>
-                {" "}
-                <div onClick={handleLogout}> Sign out </div>
-              </Dropdown.Item>
-            </Dropdown>
-          </div>
-          <div
-            className={` ${
-              open ? " hidden sm:inline" : " inline "
-            } text-md text-md text-gray-400 font-[13px] px-2 `}
-          >
-            {" "}
-            {user.email}
-          </div>
-        </div>
+
 
         <div className=" bg-gray-200">
+    
           <div
             className={` ${
               open ? " hidden sm:flex " : "flex "
@@ -200,7 +153,7 @@ function Dashboard() {
                 : " flex flex-wrap justify-around "
             } `}
           >
-            <div className="bg-white flex-1 w-1/2  md:w-1/2 px-5 overflow-auto m-5 rounded-lg shadow-md">
+            <div className="bg-white flex-1 w-1/2  md:w-1/2   overflow-auto m-5 rounded-lg shadow-md">
               <MyChartComponent />
             </div>
 

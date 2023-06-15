@@ -26,12 +26,12 @@ const MyChartComponent = () => {
     },
 
     title: {
-      text: " Fundamental Analysis of Stocks ",
+      text: " Number of Scans ",
       align: "left",
       fontSize: 16,
     },
     subtitle: {
-      text: "Price Movements",
+      text: "Per year",
       align: "left",
     },
     labels: [1991, 1992, 1993, 1994, 1995, 1996, 1997, ],
@@ -47,13 +47,12 @@ const MyChartComponent = () => {
   };
 
   return (
-    <div className="bg-white p-5 w-full" >
+    <div className="bg-white p-5 w-full ">
       <ReactApexChart
         series={series}
         options={options}
         type="area"
         height={350}
-      
       />
     </div>
   );
