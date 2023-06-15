@@ -72,7 +72,14 @@ function NavBar() {
       </div>
       <div className="bg-gray-200 pl-5 ">
         {" "}
-        <p className="p-2 text-[#1762E2] "> Home  { " > " + location.pathname.slice(1)}</p>
+        <span className="p-2  flex">
+
+          Home
+          <p className="text-[#1762E2] px-2">
+         
+            {" > " + location.pathname.slice(1)}
+          </p>
+        </span>
       </div>
     </>
   );
