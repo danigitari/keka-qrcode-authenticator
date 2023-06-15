@@ -148,16 +148,16 @@ function Dashboard() {
                 : " flex flex-wrap justify-around "
             } `}
           >
-            <div className="bg-white flex-1 w-1/2  md:w-2/3   overflow-auto mx-5 my-2 rounded-lg shadow-lg">
+            <div className="bg-white flex-1 w-1/2  md:w-2/3   overflow-auto mr-2 ml-5 my-2 rounded-lg shadow-lg">
               <MyChartComponent />
             </div>
 
-            <div className="shadow-lg w-4/5 md:w-1/3 bg-white px-5 mx-5 my-2 rounded-lg ">
+            <div className="shadow-lg w-4/5 md:w-1/3 bg-white px-5 mx-3 my-2 rounded-lg ">
               <p className="text-gray-400 text-md p-2">
                 {" "}
                 last fake scan location
               </p>
-              <div className="p-2 w-1/2">
+              <div className="p-2 relative w-full">
                 <iframe
                   width="300"
                   height="350"
@@ -165,6 +165,7 @@ function Dashboard() {
                   scrolling="yes"
                   marginheight="0"
                   marginwidth="0"
+                  className="absolute"
                   src="https://maps.google.com/maps?width=670&amp;height=363&amp;hl=en&amp;q=Nairobi garage&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 ></iframe>
               </div>
