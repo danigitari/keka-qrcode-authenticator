@@ -3,7 +3,7 @@ import { Routes, Route, Link, useLocation, Outlet } from "react-router-dom";
 import Dashboard from "./Dashboard.jsx";
 import ItemsTable from "./ItemsTable.jsx";
 import { useState, useEffect } from "react";
-import  Navbar  from "./NavBar.jsx";
+import Navbar from "./NavBar.jsx";
 
 function SidebarNavigation() {
   const [open, setOpen] = useState(true);
