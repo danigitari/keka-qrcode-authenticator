@@ -43,18 +43,15 @@ function Dashboard() {
   return (
     <>
       <div className=" flex-1 rounded-lg  ">
-
-
         <div className=" bg-gray-200">
-    
           <div
             className={` ${
               open ? " hidden sm:flex " : "flex "
-            } flex flex-row flex-wrap justify-around `}
+            } flex flex-row flex-wrap justify-around mx-2`}
           >
-            <div className="one flex flex-wrap justify-around gap-x-12">
+            <div className="one flex flex-wrap justify-around gap-x-4">
               {" "}
-              <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
+              <div className="  grid grid-row-4 shadow-md h-32 w-64 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
                 <div className="row-span-1">
                   {" "}
                   <div className="flex justify-end p-2 text-green-500 text-sm ">
@@ -73,7 +70,7 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
+              <div className="  grid grid-row-4 shadow-md h-32 w-64 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
                 <div className="row-span-1">
                   {" "}
                   <div className="flex justify-end p-2 text-green-500 text-sm ">
@@ -99,8 +96,8 @@ function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className="two flex flex-wrap justify-around  gap-x-12">
-              <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
+            <div className="two flex flex-wrap justify-around  gap-x-4">
+              <div className="  grid grid-row-4 shadow-md h-32 w-64 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
                 <div className="row-span-1">
                   {" "}
                   <div className="flex justify-end py-2 px-4 text-red-500 ">
@@ -122,7 +119,7 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className="  grid grid-row-4 shadow-md h-32 w-56 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
+              <div className="  grid grid-row-4 shadow-md h-32 w-64 my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-5 ">
                 <div className="row-span-1">
                   {" "}
                   <div className="flex justify-end p-2 text-green-500 text-sm ">
@@ -153,11 +150,11 @@ function Dashboard() {
                 : " flex flex-wrap justify-around "
             } `}
           >
-            <div className="bg-white flex-1 w-1/2  md:w-1/2   overflow-auto m-5 rounded-lg shadow-md">
+            <div className="bg-white flex-1 w-1/2  md:w-2/3   overflow-auto mx-5 my-2 rounded-lg shadow-lg">
               <MyChartComponent />
             </div>
 
-            <div className="shadow-md  w-4/5 md:w-1/3 bg-white px-5 m-5 rounded-lg ">
+            <div className="shadow-lg w-4/5 md:w-1/3 bg-white px-5 mx-5 my-2 rounded-lg ">
               <p className="text-gray-400 text-md p-2">
                 {" "}
                 last fake scan location

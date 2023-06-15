@@ -82,7 +82,9 @@ function SidebarNavigation() {
         >
           {" "}
           <Navbar />
-          <Outlet />
+          <div className="bg-gray-200">
+            <Outlet />
+          </div>
         </div>
       </div>
     </>
