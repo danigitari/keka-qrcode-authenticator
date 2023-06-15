@@ -159,8 +159,8 @@ function Dashboard() {
               </p>
               <div className="p-2 w-1/2">
                 <iframe
-                  width="100%"
-                  height="100 %"
+                  width="300"
+                  height="350"
                   frameborder="0"
                   scrolling="yes"
                   marginheight="0"
