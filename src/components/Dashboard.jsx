@@ -6,6 +6,7 @@ import BarChart from "./BarChart.jsx";
 import { useState, useEffect } from "react";
 import { UserAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
+import MyChartComponent from "./MyChartComponent.jsx";
 
 function Dashboard() {
 
@@ -199,8 +200,8 @@ function Dashboard() {
                 : " flex flex-wrap justify-around "
             } `}
           >
-            <div className="bg-white flex-1 w-1/2 h-[300px]  md:w-1/2 px-5 m-5 rounded-lg shadow-md">
-              <BarChart data={scanData} className="h-[500px]" />
+            <div className="bg-white flex-1 w-1/2  md:w-1/2 px-5 overflow-auto m-5 rounded-lg shadow-md">
+              <MyChartComponent />
             </div>
 
             <div className="shadow-md  w-4/5 md:w-1/3 bg-white px-5 m-5 rounded-lg ">
