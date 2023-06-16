@@ -47,12 +47,12 @@ const MyChartComponent = () => {
   };
 
   return (
-    <div className="bg-white p-5 w-full ">
+    <div className="bg-white p-5 w-full  ">
       <ReactApexChart
         series={series}
         options={options}
         type="area"
-        height={350}
+        height={270}
       />
     </div>
   );

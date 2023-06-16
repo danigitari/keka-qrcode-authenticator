@@ -23,16 +23,8 @@ function Dashboard() {
     ],
   });
 
-  const Navigate = useNavigate();
-  const location = useLocation();
-  const handleLogout = async () => {
-    try {
-      await logout();
-      Navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
+
 
   useEffect(() => {
     feather.replace();
@@ -148,7 +140,7 @@ function Dashboard() {
                 : " flex flex-wrap justify-around "
             } `}
           >
-            <div className="bg-white flex-1 w-1/2  md:w-2/3   overflow-auto mr-2 ml-5 my-2 rounded-lg shadow-lg">
+            <div className="bg-white flex-1 w-1/2  md:w-2/3 overflow-auto mr-2 ml-5 my-2 rounded-lg shadow-lg">
               <MyChartComponent />
             </div>
 
@@ -159,8 +151,8 @@ function Dashboard() {
               </p>
               <div className="p-2 relative w-full">
                 <iframe
-                  width="300"
-                  height="350"
+                  width="320"
+                  height="270"
                   frameborder="0"
                   scrolling="yes"
                   marginheight="0"
