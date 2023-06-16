@@ -23,9 +23,6 @@ function Dashboard() {
     ],
   });
 
-
-
-
   useEffect(() => {
     feather.replace();
   });
