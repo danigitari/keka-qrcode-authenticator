@@ -1,7 +1,5 @@
 import React from "react";
-import { Routes, Route, Link, useLocation, Outlet } from "react-router-dom";
-import Dashboard from "./Dashboard.jsx";
-import ItemsTable from "./ItemsTable.jsx";
+import {  Link, useLocation, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "./NavBar.jsx";
 
