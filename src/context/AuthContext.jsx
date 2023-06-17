@@ -19,6 +19,7 @@ export const AuthContextProvider = ({ children }) => {
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
+  
   const logout = () => signOut(auth);
 
   useEffect(() => {
