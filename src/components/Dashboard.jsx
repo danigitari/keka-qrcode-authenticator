@@ -21,7 +21,7 @@ function Dashboard() {
         <div className="flex items-center justify-between pb-5 px-3">
           <div className="bg-gray-200   ">
             {" "}
-            <span className="px-1  flex">
+            <span className="px-1 hidden  md:flex">
               Home
               <p className="text-[#1762E2] px-2 flex gap-x-2">
                 <p className="text-xl flex items-center">
@@ -44,11 +44,9 @@ function Dashboard() {
             className={` ${
               open ? " hidden sm:flex " : "flex "
             } flex flex-row flex-wrap justify-around `}
-          >
-
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 place-items-center ">
-            <div className="row-span-1 md:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
+          ></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-items-center ">
+            <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
               <div className="row-span-1">
                 {" "}
                 <div className="flex justify-end p-2 text-green-500 text-sm ">
@@ -67,7 +65,7 @@ function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className="row-span-1 md:row-span-2 grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
+            <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
               <div className="row-span-1">
                 {" "}
                 <div className="flex justify-end p-2 text-green-500 text-sm ">
@@ -86,7 +84,7 @@ function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className="row-span-1 md:row-span-2 grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
+            <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1">
               <div className="row-span-1">
                 {" "}
                 <div className="flex justify-end p-2 text-green-500 text-sm ">
@@ -105,7 +103,7 @@ function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className="row-span-1 md:row-span-2 grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
+            <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1">
               <div className="row-span-1">
                 {" "}
                 <div className="flex justify-end p-2 text-green-500 text-sm ">
@@ -128,21 +126,52 @@ function Dashboard() {
           <div
             className={` ${
               open
-                ? "hidden sm:flex sm:flex-wrap sm:justify-around"
-                : " flex flex-wrap justify-around "
+                ? "hidden sm:flex sm:flex-col sm:justify-around"
+                : " flex  flex-wrap justify-around "
             } `}
           >
-            <div className="bg-white flex-1 w-1/2  md:w-2/3 overflow-auto mr-2 ml-2 my-2 rounded-lg shadow-lg">
+            <div className="bg-white flex-1 w-full  md:w-2/3 overflow-auto mr-2 ml-2 my-2 rounded-lg shadow-lg">
               <MyChartComponent />
             </div>
 
-            <div className="shadow-lg w-4/5 md:w-1/3 bg-white px-5 mx-3 my-2 rounded-lg ">
+            <div className="shadow-lg w-full md:w-1/3 bg-white px-5 mx-2 my-2 rounded-lg ">
               <p className="text-gray-700 pt-5 text-md font-bold p-2">
                 {" "}
                 Percentage of fake scans
               </p>
               <RadialChart />
-             
+            </div>
+          </div>
+          <div
+            className={` ${
+              open
+                ? "hidden sm:flex sm:flex-col sm:justify-around"
+                : " flex  flex-wrap justify-around "
+            }  `}
+          >
+            <div className="w-full lg:w-2/3 ">
+              {" "}
+              <p className="text-gray-500 text-md py-3 "> List of Scans</p>
+              <div className=" bg-white px-5  rounded-lg shadow-lg">
+         asd  
+              </div>
+            </div>
+            <div className=" mr-3 ">
+              <p className="text-gray-500 text-md py-3  ">
+                {" "}
+                Last Fake Scan location{" "}
+              </p>
+              <div className="bg-white p-3 w-full rounded-md flex justify-center  ">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8148194775436!2d36.82062467330691!3d-1.2850766987027047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d64f021b73%3A0xd4ff709886c9ee07!2s20th%20Century%20House!5e0!3m2!1sen!2ske!4v1687191200842!5m2!1sen!2ske"
+                  width="250"
+                  height="240"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  className="rounded-lg"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>

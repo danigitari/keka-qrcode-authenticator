@@ -2,7 +2,6 @@ import React from "react";
 import { Table } from "./Table.jsx";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiChevronRight } from "react-icons/bi";
-import { useLocation } from "react-router-dom";
 
 function Orders() {
   const data = [];
@@ -25,7 +24,7 @@ function Orders() {
           </span>
         </div>
         <button className="flex px-4 py-2  items-center rounded-md text-white bg-kekaBlue shadow-lg">
-          <p className="text-white font-bold">
+          <p className="text-white font-extrabold">
             <AiOutlinePlus />
           </p>
           <p className="pl-1 pr-2"> Add New Item</p>
