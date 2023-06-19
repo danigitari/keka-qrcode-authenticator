@@ -199,6 +199,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
               field={column}
               header={column.charAt(0).toUpperCase() + column.slice(1)}
               filter
+              sortable
               filterPlaceholder="Search by name"
               style={{ minWidth: "6rem" }}
               className="text-sm"
