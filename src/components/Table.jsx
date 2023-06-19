@@ -24,15 +24,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
     setEditModal(false);
   };
 
-  const confirm1 = () => {
-    confirmDialog({
-      message: "Are you sure you want to proceed?",
-      header: "Confirmation",
-      icon: "pi pi-exclamation-triangle",
-      accept,
-      reject,
-    });
-  };
+
   const deleteItem = async (rowData) => {
     // setIsLoading(true)
     onDelete(rowData).then(() => {
@@ -58,17 +50,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
     });
   };
 
-  const confirmDeletion = () => {
-    confirmDialog({
-      message: "Do you want to delete this record?",
-      header: "Delete Confirmation",
-      icon: "pi pi-info-circle",
-      acceptClassName: "p-button-danger",
-      accept,
-      reject,
-    });
-  };
-  //   const { setFarm } = useFarmContext();
+
 
   useEffect(() => {}, [name, columns, data, onEdit, onDelete]);
 
