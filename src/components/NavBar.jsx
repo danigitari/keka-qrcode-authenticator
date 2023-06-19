@@ -4,19 +4,18 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Dropdown, Avatar } from "flowbite-react";
 
 function NavBar() {
-    const { user, logout } = UserAuth();
-      const Navigate = useNavigate();
-      const location = useLocation();
+  const { user, logout } = UserAuth();
+  const Navigate = useNavigate();
+  const location = useLocation();
 
-      const handleLogout = async () => {
-        try {
-          await logout();
-          Navigate("/");
-        } catch (error) {
-          console.log(error);
-        }
-      };
-
+  const handleLogout = async () => {
+    try {
+      await logout();
+      Navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -75,7 +74,6 @@ function NavBar() {
           </div>
         </div>
       </div>
-
     </>
   );
 }
