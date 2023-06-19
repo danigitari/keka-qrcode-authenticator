@@ -6,6 +6,7 @@ import Register from "./components/Register.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import ItemsTable from "./components/ItemsTable.jsx";
 import Dashboard from "./components/Dashboard.jsx";
+import Orders from "./components/Orders.jsx";
 function App() {
   return (
     <>
@@ -42,7 +43,7 @@ function App() {
                 path="/dashboard/orders"
                 element={
                   <ProtectedRoute>
-                    <ItemsTable />
+                    <Orders />
                   </ProtectedRoute>
                 }
               ></Route>

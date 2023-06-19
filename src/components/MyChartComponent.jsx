@@ -4,7 +4,7 @@ import ReactApexChart from "react-apexcharts";
 const MyChartComponent = () => {
   const series = [
     {
-      name: "STOCK ABC",
+      name: "Scans",
       height: 700,
       data: [30, 40, 35, 50, 49, 60, 70],
     },
