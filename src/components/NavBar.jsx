@@ -6,7 +6,6 @@ import { Dropdown, Avatar } from "flowbite-react";
 function NavBar() {
   const { user, logout } = UserAuth();
   const Navigate = useNavigate();
-  const location = useLocation();
 
   const handleLogout = async () => {
     try {
