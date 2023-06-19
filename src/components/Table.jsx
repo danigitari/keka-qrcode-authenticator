@@ -24,7 +24,6 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
     setEditModal(false);
   };
 
-
   const deleteItem = async (rowData) => {
     // setIsLoading(true)
     onDelete(rowData).then(() => {
@@ -49,8 +48,6 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
       life: 3000,
     });
   };
-
-
 
   useEffect(() => {}, [name, columns, data, onEdit, onDelete]);
 
@@ -125,8 +122,6 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
       </button>
     );
   };
-
-
 
   const refreshOnUpdateData = () => {
     if (localStorage.getItem("reloaded")) {
