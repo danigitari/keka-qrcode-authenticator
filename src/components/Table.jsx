@@ -8,6 +8,7 @@ import { Toast } from "primereact/toast";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { ProgressSpinner } from "primereact/progressspinner";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export function Table({ name, columns, data, onEdit, onDelete }) {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -168,14 +169,15 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
 
   const header = (() => {
     return (
-      <div className="flex justify-between flex-wrap gap-2 justify-content-between align-items-center">
-        <h4 className="m-0 pt-3 ">{name}</h4>
+      <div className="flex justify-between flex-wrap gap-2 justify-content-between align-items-center h-8">
+        <h4 className="m-0 pt-2 ">{name}</h4>
         <span className="p-input-icon-left">
-          <i className="pi pi-search" />
+          <AiOutlineSearch/>
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
             placeholder="Keyword Search"
+            className="h-8 text-sm"
           />
         </span>
       </div>
@@ -189,7 +191,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
       {/* <Modal visible={editModal} setVisible={setEditModal}>
         <FarmForm onSubmit={onSubmit} />
       </Modal> */}
-      <div className="card bg-white p-5 rounded-md shadow-md ">
+      <div className="card bg-white p-5 rounded-md shadow-md  ">
         <DataTable
           value={data}
           paginator
@@ -216,39 +218,33 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
         >
           <Column
             selectionMode="multiple"
-            headerStyle={{ width: "2rem" }}
+            headerStyle={{ width: "1rem" }}
           ></Column>
           {columns.map((column, idx) => (
             <Column
               key={idx}
               field={column}
               header={column.charAt(0).toUpperCase() + column.slice(1)}
-              sortable
               filter
               filterPlaceholder="Search by name"
               style={{ minWidth: "6rem" }}
+              className="text-sm"
             />
           ))}
-          {name === "Farms" ? (
-            <Column
-              header="goToFarm"
-              body={goToFarm}
-              exportable={false}
-              style={{ minWidth: "6rem" }}
-            ></Column>
-          ) : null}
 
           <Column
             header="Edit"
             body={editActionBodyTemplate}
             exportable={false}
             style={{ minWidth: "6rem" }}
+            className="text-sm"
           ></Column>
           <Column
             header="Delete"
             body={deleteActionBodyTemplate}
             exportable={false}
             style={{ minWidth: "6rem" }}
+            className="text-sm"
           ></Column>
         </DataTable>
       </div>

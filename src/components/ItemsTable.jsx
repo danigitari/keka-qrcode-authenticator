@@ -10,7 +10,7 @@ function Orders() {
     <div className="p-10">
       <Table
         name={"Items"}
-        columns={["type", "description", "quantity"]}
+        columns={["Item ID", "Title", "Numbers of Scans", "Numbers of Fake Scans"  ]}
         data={data}
         onEdit={onEdit}
         onDelete={onDelete}
