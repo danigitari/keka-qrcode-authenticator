@@ -152,9 +152,7 @@ function Dashboard() {
             <div className="w-full lg:w-2/3 ">
               {" "}
               <p className="text-gray-500 text-md py-3 "> List of Scans</p>
-              <div className=" bg-white px-5  rounded-lg shadow-lg">
-         asd  
-              </div>
+              <div className=" bg-white px-5  rounded-lg shadow-lg">asd</div>
             </div>
             <div className=" mr-3 ">
               <p className="text-gray-500 text-md py-3  ">
