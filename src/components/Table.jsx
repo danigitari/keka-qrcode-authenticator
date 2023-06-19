@@ -68,7 +68,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
       reject,
     });
   };
-//   const { setFarm } = useFarmContext();
+  //   const { setFarm } = useFarmContext();
 
   useEffect(() => {}, [name, columns, data, onEdit, onDelete]);
 
@@ -144,16 +144,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
     );
   };
 
-  const goToFarm = (rowData) => {
-    return (
-      <button
-        className="text-white bg-green-500 text-md rounded-full shadow-md py-2 px-6"
-        onClick={() => goToFarmDashboard(rowData)}
-      >
-        View
-      </button>
-    );
-  };
+
 
   const refreshOnUpdateData = () => {
     if (localStorage.getItem("reloaded")) {
@@ -172,7 +163,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
       <div className="flex justify-between flex-wrap gap-2 justify-content-between align-items-center h-8">
         <h4 className="m-0 pt-2 ">{name}</h4>
         <span className="p-input-icon-left">
-          <AiOutlineSearch/>
+          <AiOutlineSearch />
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}

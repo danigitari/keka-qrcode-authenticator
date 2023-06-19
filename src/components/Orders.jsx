@@ -1,14 +1,38 @@
 import React from 'react'
 import { Table } from './Table.jsx'
+import { AiOutlinePlus , } from 'react-icons/ai'
+import { BiChevronRight } from 'react-icons/bi'
+import { useLocation } from 'react-router-dom'
 
 function Orders() {
     const data = []
     const onEdit = () => {}
     const onDelete = () => {}
+    const location = useLocation()
 
 
   return (
-    <div className="p-10">
+    <div className="px-10 pt-5 h-screen">
+      <div className="flex items-center justify-between pb-5 ">
+        <div className="bg-gray-200  pt-3 ">
+          {" "}
+          <span className="px-1  flex">
+            Home
+            <p className="text-[#1762E2] px-2 flex gap-x-2">
+              <p className="text-xl flex items-center">
+                <BiChevronRight />
+              </p>
+              {location.pathname.slice(1).replace("/", "  / ")}
+            </p>
+          </span>
+        </div>
+        <button className="flex px-4 py-2  items-center rounded-md text-white bg-kekaBlue shadow-lg">
+          <p className="text-white font-bold">
+            <AiOutlinePlus />
+          </p>
+          <p className="pl-1 pr-2"> Add New order</p>
+        </button>
+      </div>
       <Table
         name={"Orders"}
         columns={["type", "description", "quantity"]}

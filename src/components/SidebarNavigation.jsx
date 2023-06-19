@@ -36,13 +36,13 @@ function SidebarNavigation() {
       <div className="flex max-w-screen h-screen">
         <aside
           className={` ${
-            open ? "  w-3/4 md:w-72" : "w-20 "
+            open ? "  w-3/4 md:w-80" : "w-20 "
           } bg-kekaBlue  p-5 pt-8 sticky top-0 duration-300`}
         >
           <span
             onClick={() => setOpen(!open)}
-            className={`absolute cursor-pointer -right-3 top-16 w-7 border-dark-purple
-           border-2 rounded-full bg-white ${!open && "rotate-180"}`}
+            className={`absolute cursor-pointer -right-3 top-16 w-7 shadow-md
+        rounded-full bg-white ${!open && "rotate-180"}`}
           >
             <i data-feather="chevron-left"> </i>
           </span>

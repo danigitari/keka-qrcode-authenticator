@@ -2,6 +2,7 @@ import React from "react";
 import { UserAuth } from "../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Dropdown, Avatar } from "flowbite-react";
+import {BiChevronRight} from "react-icons/bi"
 
 function NavBar() {
     const { user, logout } = UserAuth();
@@ -16,12 +17,17 @@ function NavBar() {
           console.log(error);
         }
       };
+      const chevronRight = (
+        <p className="text-xl flex items-center">
+          <BiChevronRight />
+        </p>
+      );
 
   return (
     <>
       <div className="flex items-center justify-between relative  px-5 py-2">
         <p className="pl-5  text-xl">Dashboard</p>
-       
+
         <div className="flex items-center">
           <div
             className={` ${
@@ -74,15 +80,7 @@ function NavBar() {
           </div>
         </div>
       </div>
-      <div className="bg-gray-200 pl-5 ">
-        {" "}
-        <span className="p-2  flex">
-          Home
-          <p className="text-[#1762E2] px-2">
-            {" > " + location.pathname.slice(1)}
-          </p>
-        </span>
-      </div>
+
     </>
   );
 }
