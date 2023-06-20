@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("")
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const Navigate = useNavigate();
@@ -22,9 +23,19 @@ function Login() {
       console.log(error.message);
     }
   };
+
+  const handleRegister = async (e) => {
+    e.preventDefault()
+     try {
+      await axios.post('/login ',{ email, password })
+      Navigate("/dashboard");
+    } catch (error) {
+      setError(error)
+    }
+  }
   return (
     <>
-      <div className="grid grid-cols-1  md:grid-cols-3 items-center justify-center h-screen bg-gray-100">
+      <div className="grid grid-cols-1  md:grid-cols-3 items-center justify-center h-screen bg-gray-200">
         <div className="m-10 md:m-0 col-span-1  md:col-start-2 bg-white shadow-md p-10 rounded-lg ">
           <div className="flex gap-x-4 items-center justify-center">
             <img
@@ -36,6 +47,18 @@ function Login() {
           <div className="grid grid-row-1  md:grid-row-4  ">
             <div className="row-span-1 md:row-span-2 row-start-2">
               <form onSubmit={handleSubmit}>
+                <div className="mb-6">
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    onChange={(e) => setName(e.target.value)}
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                    placeholder="Name"
+                    required
+                  />
+                </div>
                 <div className="mb-6">
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Your email
@@ -57,6 +80,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                     required
+                    placeholder="password"
                   />
                 </div>
 

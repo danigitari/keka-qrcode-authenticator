@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UserAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "../api/axios.js"
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -20,6 +21,14 @@ function Login() {
       console.log(error.message);
     }
   };
+  const handleLogin = async (e) => {
+    e.preventDefault(); 
+    try {
+      await axios.post('/login ',{ email, password })
+      Navigate("/dashboard");
+    }
+  catch (error) {setError(error.message); console.log(error)}
+  }
   return (
     <>
       <div className="grid grid-cols-1  md:grid-cols-3 items-center justify-center h-screen bg-gray-100">
