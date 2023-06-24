@@ -196,8 +196,8 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
               filter
               sortable
               filterPlaceholder="Search by name"
-              style={{ minWidth: "6rem" }}
-              className="text-sm"
+              style={{ minWidth: "9rem" , fontSize: "0.8rem" }}
+              
             />
           ))}
 
@@ -212,7 +212,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
             header="Delete"
             body={deleteActionBodyTemplate}
             exportable={false}
-            style={{ minWidth: "6rem" }}
+            style={{ minWidth: "5rem" }}
             className="text-sm"
           ></Column>
         </DataTable>

@@ -2,11 +2,16 @@ import React from "react";
 import { Table } from "./Table.jsx";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiChevronRight } from "react-icons/bi";
+import { useState } from "react";
+import { Modal } from "./Modal";
+import { AddForm } from "./AddForm.jsx";
 
-function Orders() {
+function Groups() {
   const data = [];
   const onEdit = () => {};
   const onDelete = () => {};
+  const [visible, setVisible] = useState(false);
+  const onSubmit = async (data) => {};
 
   return (
     <div className="px-10 pt-5 h-screen">
@@ -23,27 +28,34 @@ function Orders() {
             </p>
           </span>
         </div>
-        <button className="flex px-4 py-2  items-center rounded-md text-white bg-kekaBlue shadow-lg">
+        <button
+          className="flex px-4 py-2  items-center rounded-md text-white bg-kekaBlue shadow-lg"
+          onClick={() => setVisible(true)}
+        >
           <p className="text-white font-extrabold">
             <AiOutlinePlus />
           </p>
-          <p className="pl-1 pr-2"> Add New Item</p>
+          <p className="pl-1 pr-2"> Add New Group</p>
         </button>
       </div>
       <Table
-        name={"Items"}
+        name={"Groups"}
         columns={[
-          "Item ID",
-          "Title",
-          "Numbers of Scans",
-          "Numbers of Fake Scans",
+          "Group ID",
+          "Group Name",
+          "Numbers of Items",
+          "Creation Date",
+          "Last Update",
         ]}
         data={data}
         onEdit={onEdit}
         onDelete={onDelete}
-      />
+      />{" "}
+      <Modal header={"Add New Asset"} visible={visible} setVisible={setVisible}>
+        <AddForm onSubmit={onSubmit} />
+      </Modal>
     </div>
   );
 }
 
-export default Orders;
+export default Groups;

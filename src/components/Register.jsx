@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UserAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "../api/axios.js";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -8,29 +9,31 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const Navigate = useNavigate();
+  
+  // const { createUser } = UserAuth();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   Navigate("/dashboard");
 
-  const { createUser } = UserAuth();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    Navigate("/dashboard");
+  //   setError("");
 
-    setError("");
-
-    try {
-      await createUser(email, password);
-    } catch (error) {
-      setError();
-      console.log(error.message);
-    }
-  };
+  //   try {
+  //     await createUser(email, password);
+  //   } catch (error) {
+  //     setError();
+  //     console.log(error.message);
+  //   }
+  // };
 
   const handleRegister = async (e) => {
     e.preventDefault()
      try {
-      await axios.post('/login ',{ email, password })
+      await axios.post('/register', { name ,email, password })
       Navigate("/dashboard");
     } catch (error) {
+      
       setError(error)
+      console.log(error)
     }
   }
   return (
@@ -46,7 +49,7 @@ function Login() {
           </div>
           <div className="grid grid-row-1  md:grid-row-4  ">
             <div className="row-span-1 md:row-span-2 row-start-2">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleRegister}>
                 <div className="mb-6">
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Your Name
@@ -92,7 +95,7 @@ function Login() {
                     Register
                   </button>
                   <a className="text-kekaBlue">
-                    <Link to="/register">Login</Link>
+                    <Link to="/ ">Login</Link>
                   </a>
                 </div>
               </form>

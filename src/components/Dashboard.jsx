@@ -1,6 +1,4 @@
 import React from "react";
-
-import { data } from "../data";
 import "../index.css";
 
 import { useState, useEffect } from "react";
@@ -164,9 +162,7 @@ function Dashboard() {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8148194775436!2d36.82062467330691!3d-1.2850766987027047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d64f021b73%3A0xd4ff709886c9ee07!2s20th%20Century%20House!5e0!3m2!1sen!2ske!4v1687191200842!5m2!1sen!2ske"
                   width="250"
                   height="240"
-                  allowfullscreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
                   className="rounded-lg"
                 ></iframe>
               </div>

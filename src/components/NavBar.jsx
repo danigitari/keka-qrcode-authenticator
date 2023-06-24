@@ -47,10 +47,11 @@ function NavBar() {
                       : "flex text-md text-gray-400"
                   }`}
                 >
-                  {user && user.email} <i data-feather="chevron-down"></i>
+                  {/* {user && user.email}  */}
+                  <i data-feather="chevron-down"></i>
                 </span>
                 <span className="block truncate text-sm font-medium">
-                  {user && user.email}
+                  {/* {user && user.email} */}
                 </span>
               </Dropdown.Header>
               <Dropdown.Item>Dashboard</Dropdown.Item>
@@ -69,7 +70,7 @@ function NavBar() {
             } text-md text-md text-gray-400 font-[13px] px-2 `}
           >
             {" "}
-            {user.email}
+            {/* {user.email} */}
           </div>
         </div>
       </div>

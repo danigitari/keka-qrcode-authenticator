@@ -4,9 +4,12 @@ import Login from "./components/Login.jsx";
 import { AuthContextProvider } from "./context/authContext.jsx";
 import Register from "./components/Register.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import ItemsTable from "./components/ItemsTable.jsx";
+import Items from "./components/Items.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import Orders from "./components/Orders.jsx";
+import Editor from "./components/Editor.jsx";
+import Groups from "./components/Groups.jsx";
+
 function App() {
   return (
     <>
@@ -35,7 +38,7 @@ function App() {
                 path="/dashboard/items"
                 element={
                   <ProtectedRoute>
-                    <ItemsTable />
+                    <Items />
                   </ProtectedRoute>
                 }
               ></Route>
@@ -51,7 +54,15 @@ function App() {
                 path="/dashboard/groups"
                 element={
                   <ProtectedRoute>
-                    <ItemsTable />
+                    <Groups />
+                  </ProtectedRoute>
+                }
+              ></Route>
+              <Route
+                path="/dashboard/content-editor"
+                element={
+                  <ProtectedRoute>
+                    <Editor.jsx/>
                   </ProtectedRoute>
                 }
               ></Route>

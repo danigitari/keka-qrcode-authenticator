@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { UserAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "../api/axios.js"
+import axios from "../api/axios.js";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,16 +22,18 @@ function Login() {
     }
   };
   const handleLogin = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     try {
-      await axios.post('/login ',{ email, password })
+      await axios.post("/login ", { email, password });
       Navigate("/dashboard");
+    } catch (error) {
+      setError(error.message);
+      console.log(error);
     }
-  catch (error) {setError(error.message); console.log(error)}
-  }
+  };
   return (
     <>
-      <div className="grid grid-cols-1  md:grid-cols-3 items-center justify-center h-screen bg-gray-100">
+      <div className="grid grid-cols-1  md:grid-cols-3 items-center justify-center h-screen bg-gray-300">
         <div className="m-10 md:m-0 col-span-1  md:col-start-2 bg-white shadow-md p-10 rounded-lg ">
           <div className="flex gap-x-4 items-center justify-center">
             <img
@@ -43,7 +45,7 @@ function Login() {
           {error && <div className="text-red-500"> {error} </div>}
           <div className="grid grid-row-1  md:grid-row-4  ">
             <div className="row-span-1 md:row-span-2 row-start-2">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleLogin}>
                 <div className="mb-6">
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Your email
