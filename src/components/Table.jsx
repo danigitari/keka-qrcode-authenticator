@@ -186,7 +186,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
         >
           <Column
             selectionMode="multiple"
-            headerStyle={{ width: "1rem" }}
+            headerStyle={{ width: "1rem" , fontSize: "0.8rem" , fontWeight: "500" }}
           ></Column>
           {columns.map((column, idx) => (
             <Column
@@ -196,7 +196,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
               filter
               sortable
               filterPlaceholder="Search by name"
-              style={{ minWidth: "9rem" , fontSize: "0.8rem" }}
+              style={{ minWidth: "9rem" , fontSize: "0.9rem" , fontWeight: "500" }}
               
             />
           ))}

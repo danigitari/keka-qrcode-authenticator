@@ -128,11 +128,11 @@ function Dashboard() {
                 : " flex  flex-wrap justify-around "
             } `}
           >
-            <div className="bg-white flex-1 w-full  md:w-2/3 overflow-auto mr-2 ml-2 my-2 rounded-lg shadow-lg">
+            <div className="bg-white flex-1 w-full  lg:w-2/3 overflow-auto mr-2 ml-2 my-2 rounded-lg shadow-lg">
               <MyChartComponent />
             </div>
 
-            <div className="shadow-lg w-full md:w-1/3 bg-white px-5 mx-2 my-2 rounded-lg ">
+            <div className="shadow-lg w-full lg:w-1/3 bg-white px-5 mx-2 my-2 rounded-lg ">
               <p className="text-gray-700 pt-5 text-md font-bold p-2">
                 {" "}
                 Percentage of fake scans
@@ -145,17 +145,19 @@ function Dashboard() {
               open
                 ? "hidden sm:flex sm:flex-col sm:justify-around"
                 : " flex  flex-wrap justify-around "
-            }  `}
+            } max-w-screen `}
           >
-            <div className="w-full lg:w-2/3 ">
+            <div className="w-full lg:w-2/3 px-5">
               {" "}
               <p className="text-gray-500 text-md py-3 "> List of Scans</p>
-              <div className=" bg-white px-5  rounded-lg shadow-lg">asd</div>
+              <div className=" bg-white px-5  rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet.
+              </div>
             </div>
-            <div className=" mr-3 ">
+            <div className="w-full lg:w-1/3 ">
               <p className="text-gray-500 text-md py-3  ">
-                {" "}
-                Last Fake Scan location{" "}
+             
+                Last Fake Scan location
               </p>
               <div className="bg-white p-3 w-full rounded-md flex justify-center  ">
                 <iframe

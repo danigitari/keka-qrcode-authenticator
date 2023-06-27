@@ -19,7 +19,7 @@ function NavBar() {
   return (
     <>
       <div className="flex items-center justify-between relative  px-5 py-3">
-        <p className="pl-5  text-xl">Dashboard</p>
+        <p className="pl-5 text-xl">Dashboard</p>
 
         <div className="flex items-center">
           <div

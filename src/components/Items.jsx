@@ -5,13 +5,24 @@ import { BiChevronRight } from "react-icons/bi";
 import { useState } from "react";
 import { Modal } from "./Modal";
 import { AddForm } from "./AddForm.jsx";
+import { createNewItem } from "../api/services.js";
 
 function Items() {
   const data = [];
   const onEdit = () => {};
   const onDelete = () => {};
   const [visible, setVisible] = useState(false);
-  	const onSubmit = async (data) => {}
+
+  const onSubmit = async (itemData) => {
+    const formData = new FormData();
+    formData.append("image", itemData.image);
+    formData.append("title", itemData.title);
+    formData.append("description", itemData.description);
+;
+    await createNewItem({
+     itemData
+    });
+  };
 
   return (
     <div className="px-10 pt-5 h-screen">
@@ -28,7 +39,10 @@ function Items() {
             </p>
           </span>
         </div>
-        <button className="flex px-4 py-2  items-center rounded-md text-white bg-kekaBlue shadow-lg" onClick={() => setVisible(true)}>
+        <button
+          className="flex px-4 py-2  items-center rounded-md text-white bg-kekaBlue shadow-lg"
+          onClick={() => setVisible(true)}
+        >
           <p className="text-white font-extrabold">
             <AiOutlinePlus />
           </p>
@@ -42,18 +56,14 @@ function Items() {
           "Title",
           "Numbers of Scans",
           "Numbers of Fake Scans",
-          "Last Update"
+          "Last Update",
         ]}
         data={data}
         onEdit={onEdit}
         onDelete={onDelete}
       />{" "}
-      <Modal
-        header={"Add New Asset"}
-        visible={visible}
-        setVisible={setVisible}
-      >
-        <AddForm onSubmit={onSubmit}  />
+      <Modal header={"Add New Asset"} visible={visible} setVisible={setVisible}>
+        <AddForm onSubmit={onSubmit} />
       </Modal>
     </div>
   );

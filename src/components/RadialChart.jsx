@@ -14,7 +14,8 @@ const RadialChart = () => {
           size: "50%",
         },
       },
-    },
+    },  
+    
     labels: ["Fake Scans"],
   };
 

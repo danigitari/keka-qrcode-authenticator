@@ -50,7 +50,7 @@ function Groups() {
         data={data}
         onEdit={onEdit}
         onDelete={onDelete}
-      />{" "}
+      />
       <Modal header={"Add New Asset"} visible={visible} setVisible={setVisible}>
         <AddForm onSubmit={onSubmit} />
       </Modal>
