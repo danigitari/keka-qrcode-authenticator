@@ -17,7 +17,6 @@ function Groups() {
     <div className="px-10 pt-5 h-screen">
       <div className="flex items-center justify-between pb-5 ">
         <div className="bg-gray-200  pt-3 ">
-          {" "}
           <span className="px-1 flex">
             Home
             <p className="text-[#1762E2] px-2 flex gap-x-2">

@@ -7,23 +7,18 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 
-
 const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
-
-
-  const createUser = (email, password) => {
- 
-  };
+  const createUser = (email, password) => {};
 
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
-  
+
   const logout = () => signOut(auth);
 
   useEffect(() => {

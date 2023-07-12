@@ -20,7 +20,6 @@ function Login() {
       setError(error.message);
       console.log(error.message);
       Navigate("/");
-      
     }
   };
   const handleLogin = async (e) => {

@@ -86,7 +86,7 @@ function SidebarNavigation() {
             open ? "hidden md:block" : "block"
           } overflow-auto w-full`}
         >
-          {" "}
+          
           <Navbar />
           <div className="bg-gray-200">
             <Outlet />
