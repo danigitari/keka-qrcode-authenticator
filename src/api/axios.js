@@ -4,7 +4,6 @@ export default axios.create({
   baseURL: "http://localhost:8000/api",
   withCredentials: true,
   headers: {
-    "Access-Control-Allow-Origin": "*",
-    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*"
   },
 });

@@ -3,27 +3,13 @@ import { UserAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../api/axios.js";
 
-function Login() {
+function Register() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("")
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const Navigate = useNavigate();
-  
-  // const { createUser } = UserAuth();
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   Navigate("/dashboard");
 
-  //   setError("");
-
-  //   try {
-  //     await createUser(email, password);
-  //   } catch (error) {
-  //     setError();
-  //     console.log(error.message);
-  //   }
-  // };
 
   const handleRegister = async (e) => {
     e.preventDefault()
@@ -31,10 +17,11 @@ function Login() {
       await axios.post('/register', { name ,email, password })
       Navigate("/dashboard");
     } catch (error) {
-      
+    
       setError(error)
       console.log(error)
     }
+    return
   }
   return (
     <>
@@ -47,6 +34,7 @@ function Login() {
               className="cursor-pointer duration-500 w-24 h-24  "
             />
           </div>
+          {error && <div className="text-red-500"> Invalid credentials </div>}
           <div className="grid grid-row-1  md:grid-row-4  ">
             <div className="row-span-1 md:row-span-2 row-start-2">
               <form onSubmit={handleRegister}>
@@ -107,4 +95,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

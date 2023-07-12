@@ -186,7 +186,11 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
         >
           <Column
             selectionMode="multiple"
-            headerStyle={{ width: "1rem" , fontSize: "0.8rem" , fontWeight: "500" }}
+            headerStyle={{
+              width: "1rem",
+              fontSize: "0.8rem",
+              fontWeight: "500",
+            }}
           ></Column>
           {columns.map((column, idx) => (
             <Column
@@ -196,25 +200,32 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
               filter
               sortable
               filterPlaceholder="Search by name"
-              style={{ minWidth: "9rem" , fontSize: "0.9rem" , fontWeight: "500" }}
-              
+              style={{
+                minWidth: "9rem",
+                fontSize: "0.9rem",
+                fontWeight: "500",
+              }}
             />
           ))}
 
-          <Column
-            header="Edit"
-            body={editActionBodyTemplate}
-            exportable={false}
-            style={{ minWidth: "6rem" }}
-            className="text-sm"
-          ></Column>
-          <Column
-            header="Delete"
-            body={deleteActionBodyTemplate}
-            exportable={false}
-            style={{ minWidth: "5rem" }}
-            className="text-sm"
-          ></Column>
+          {name !== "Scans" ? (
+            <Column
+              header="Edit"
+              body={editActionBodyTemplate}
+              exportable={false}
+              style={{ minWidth: "6rem" }}
+              className="text-sm"
+            ></Column>
+          ) : null}
+          {name !== "Scans" ? (
+            <Column
+              header="Delete"
+              body={deleteActionBodyTemplate}
+              exportable={false}
+              style={{ minWidth: "5rem" }}
+              className="text-sm"
+            ></Column>
+          ) : null}
         </DataTable>
       </div>
     </div>

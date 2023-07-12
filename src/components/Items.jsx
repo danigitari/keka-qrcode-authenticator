@@ -15,12 +15,13 @@ function Items() {
 
   const onSubmit = async (itemData) => {
     const formData = new FormData();
+    formData.append("name", itemData.name);
     formData.append("image", itemData.image);
-    formData.append("title", itemData.title);
+    formData.append("id", itemData.id);
     formData.append("description", itemData.description);
-;
+
     await createNewItem({
-     itemData
+      formData,
     });
   };
 
@@ -28,7 +29,6 @@ function Items() {
     <div className="px-10 pt-5 h-screen">
       <div className="flex items-center justify-between pb-5 ">
         <div className="bg-gray-200  pt-3 ">
-          {" "}
           <span className="px-1 flex">
             Home
             <p className="text-[#1762E2] px-2 flex gap-x-2">
@@ -61,7 +61,7 @@ function Items() {
         data={data}
         onEdit={onEdit}
         onDelete={onDelete}
-      />{" "}
+      />
       <Modal header={"Add New Asset"} visible={visible} setVisible={setVisible}>
         <AddForm onSubmit={onSubmit} />
       </Modal>
