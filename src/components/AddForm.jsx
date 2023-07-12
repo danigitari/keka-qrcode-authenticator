@@ -7,7 +7,7 @@ export function AddForm({ onSubmit, data }) {
   const [name, setName] = useState(data?.type);
   const [id, setId] = useState(data?.type);
   const [description, setDescription] = useState(data?.description);
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState("");
 
   return (
     <>
@@ -35,7 +35,6 @@ export function AddForm({ onSubmit, data }) {
 
         <div className="col-span-6 md:col-span-3 p-5">
           <div className=" card text-sm flex justify-content-center">
-
             <div className="mb-3">
               <label className="block mb-1 text-sm font-semibold  text-gray-600">
                 Upload item image
@@ -44,8 +43,9 @@ export function AddForm({ onSubmit, data }) {
                 type="file"
                 className="shadow-sm bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                 placeholder="choose file"
-                onChange={(e) => { setImage(e.target.files[0]) }}
-            
+                onChange={(e) => {
+                  setImage(e.target.files[0]);
+                }}
               />
             </div>
           </div>
