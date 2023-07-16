@@ -106,7 +106,7 @@ function Dashboard() {
               <div className="row-span-1">
                 <div className="flex flex-col justify-start p-2 ">
                   <span className="text-3xl mb-1">2 </span>
-                  <span className="text-md text-gray-400"> Total Items</span>
+                  <span className="text-md text-gray-400"> Total Items  </span>
                 </div>
               </div>
             </div>

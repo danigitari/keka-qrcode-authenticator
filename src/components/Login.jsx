@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { UserAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../api/axios.js";
 
@@ -9,24 +8,13 @@ function Login() {
   const [error, setError] = useState("");
   const Navigate = useNavigate();
 
-  const { login } = UserAuth();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    try {
-      await login(email, password);
-      Navigate("/dashboard");
-    } catch (error) {
-      setError(error.message);
-      console.log(error.message);
-      Navigate("/");
-    }
-  };
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/login ", { email, password });
+     const res = await axios.post("/login ", { email, password });
+      localStorage.setItem("token", res.data.token);
       Navigate("/dashboard");
+      return res;
     } catch (error) {
       setError(error.message);
       console.log(error);
