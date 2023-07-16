@@ -1,34 +1,29 @@
-import React from "react";
-import ReactApexChart from "react-apexcharts";
+import React, { useState, useEffect } from "react";
+import { Chart } from "primereact/chart";
 
-const RadialChart = () => {
+export default function DoughnutChartDemo({data}) {
+  const [chartData, setChartData] = useState({});
+  const [chartOptions, setChartOptions] = useState({});
 
-  const options = {
-    chart: {
-      height: 350,
-      type: "radialBar",
-    },
-    plotOptions: {
-      radialBar: {
-        hollow: {
-          size: "50%",
-        },
-      },
-    },  
-    
-    labels: ["Fake Scans"],
-  };
+  useEffect(() => {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    const options = {
+      cutout: "60%",
+    };
+
+    setChartData(data);
+    setChartOptions(options);
+  }, []);
 
   return (
-    <div className="bg-white p-5 w-full  flex items-center">
-      <ReactApexChart
-        series={[10]}
-        options={options}
-        type="radialBar"
-        height={270}
+    <div className="card flex justify-center h-full sm:h-96 pb-0 sm:pb-5">
+      <Chart
+        type="doughnut"
+        data={data}
+        options={chartOptions}
+        className="w-full md:w-30rem"
       />
     </div>
   );
-};
-
-export default RadialChart;
+}

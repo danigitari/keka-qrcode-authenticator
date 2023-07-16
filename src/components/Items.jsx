@@ -55,7 +55,7 @@ function Items() {
           "Item ID",
           "Title",
           "Numbers of Scans",
-          "Numbers of Fake Scans",
+          // "Numbers of Fake Scans",
           "Last Update",
         ]}
         data={data}

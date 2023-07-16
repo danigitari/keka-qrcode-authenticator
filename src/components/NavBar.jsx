@@ -1,11 +1,38 @@
-import React from "react";
+import { useRef } from "react";
 import { UserAuth } from "../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Dropdown, Avatar } from "flowbite-react";
+import { Button } from "primereact/button";
+import { Avatar } from "primereact/avatar";
+import { Menu } from "primereact/menu";
 
 function NavBar() {
   const { user, logout } = UserAuth();
   const Navigate = useNavigate();
+  const menuRight = useRef(null);
+  const items = [
+    {
+      label: "Email",
+      icon: "pi pi-refresh",
+      command: () => {
+        toast.current.show({
+          severity: "success",
+          summary: "Updated",
+          detail: "Data Updated",
+        });
+      },
+    },
+    {
+      label: "Logout",
+      icon: "pi pi-times",
+      command: () => {
+        toast.current.show({
+          severity: "warn",
+          summary: "Delete",
+          detail: "Data Deleted",
+        });
+      },
+    },
+  ];
 
   const handleLogout = async () => {
     try {
@@ -18,59 +45,26 @@ function NavBar() {
 
   return (
     <>
-      <div className="flex items-center justify-between relative  px-5 py-3">
-        <p className="pl-5 text-xl">Dashboard</p>
-
-        <div className="flex items-center">
-          <div
-            className={` ${
-              open ? "hidden md:flex justify-end" : "flex justify-end "
-            }`}
-          >
-            <Dropdown
-              label={
-                <Avatar
-                  alt="User settings"
-                  img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                  rounded={true}
-                  className="rounded-full"
-                />
-              }
-              arrowIcon={false}
-              inline={true}
-            >
-              <Dropdown.Header>
-                <span
-                  className={` ${
-                    open
-                      ? "hidden sm:flex text-md text-gray-400"
-                      : "flex text-md text-gray-400"
-                  }`}
-                >
-                  {/* {user && user.email}  */}
-                  <i data-feather="chevron-down"></i>
-                </span>
-                <span className="block truncate text-sm font-medium">
-                  {/* {user && user.email} */}
-                </span>
-              </Dropdown.Header>
-              <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item>Settings</Dropdown.Item>
-              <Dropdown.Item>Earnings</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Item>
-                {" "}
-                <div onClick={handleLogout}> Sign out </div>
-              </Dropdown.Item>
-            </Dropdown>
-          </div>
-          <div
-            className={` ${
-              open ? " hidden sm:inline" : " inline "
-            } text-md text-md text-gray-400 font-[13px] px-2 `}
-          >
-            {" "}
-            {/* {user.email} */}
+      <div className="flex items-center justify-between relative bg-gray-50 w-full px-5 py-3">
+        <div
+          className={` ${
+            open ? " hidden sm:inline" : " inline "
+          } text-md text-md text-gray-900 font-[13px] px-2 `}
+        >
+          <p className="pl-5 text-xl ">Dashboard</p>
+        </div>
+        <div className="flex justify-end w-full">
+          <div className="flex items-center ">
+            <Avatar
+              label=""
+              icon="pi pi-align-right"
+              className="mr-2"
+              onClick={(event) => menuRight.current.toggle(event)}
+              aria-controls="popup_menu_right"
+              aria-haspopup
+            />
+            <Menu model={items} popup ref={menuRight} />
+            <span className="text-gray-500"> asjkdfna;sdjkf</span>
           </div>
         </div>
       </div>

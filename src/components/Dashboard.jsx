@@ -2,16 +2,52 @@ import React from "react";
 import "../index.css";
 import { Table } from "./Table.jsx";
 import { useState, useEffect } from "react";
-import MyChartComponent from "./MyChartComponent.jsx";
 import { BiChevronRight, BiRefresh } from "react-icons/bi";
+import { FiTrendingUp , FiTrendingDown} from "react-icons/fi";
 import RadialChart from "./RadialChart";
+import { StackedChart } from "./Chart.jsx";
 
 function Dashboard() {
   const [open, setOpen] = useState(false);
+  const [chartData, setChartData] = useState({});
+  const [radialChartData, setRadialChartData] = useState({});
 
   useEffect(() => {
     feather.replace();
-  });
+    const documentStyle = getComputedStyle(document.documentElement);
+    const data = {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [
+        {
+          type: "bar",
+          label: "Number of Scans",
+          backgroundColor: documentStyle.getPropertyValue("--blue-500"),
+          data: [50, 25, 12, 48, 90, 76, 42],
+        },
+
+      ],
+    };
+    const radialData = {
+      labels: ["real", "Fake"],
+      datasets: [
+        {
+          data: [300, 10],
+          backgroundColor: [
+            documentStyle.getPropertyValue("--blue-500"),
+            documentStyle.getPropertyValue("--yellow-500"),
+            documentStyle.getPropertyValue("--green-500"),
+          ],
+          hoverBackgroundColor: [
+            documentStyle.getPropertyValue("--blue-400"),
+            documentStyle.getPropertyValue("--yellow-400"),
+            documentStyle.getPropertyValue("--green-400"),
+          ],
+        },
+      ],
+    };
+    setChartData(data);
+    setRadialChartData(radialData)
+  }, []);
 
   return (
     <>
@@ -44,9 +80,9 @@ function Dashboard() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-items-center ">
             <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
               <div className="row-span-1">
-                <div className="flex justify-end p-2 text-green-500 text-sm ">
-                  <i data-feather="chevron-up" className="text-xs "></i>
-                  <p className=""> + 2 % </p>
+                <div className="flex justify-end p-2 text-green-500 text-xl ">
+                  <FiTrendingUp />
+                  <p className="px-2 text-sm"> + 2 % </p>
                 </div>
               </div>
               <div className="row-span-1"> </div>
@@ -54,15 +90,31 @@ function Dashboard() {
               <div className="row-span-1">
                 <div className="flex flex-col justify-start p-2 ">
                   <span className="text-3xl mb-1">7 </span>
-                  <span className="text-md text-gray-400"> scans today</span>
+                  <span className="text-md text-gray-400"> Total Scans</span>
                 </div>
               </div>
             </div>
             <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
               <div className="row-span-1">
-                <div className="flex justify-end p-2 text-green-500 text-sm ">
-                  <i data-feather="chevron-up" className="text-xs "></i>
-                  <p className=""> + 2 % </p>
+                <div className="flex justify-end p-2 text-green-500 text-xl ">
+                  <FiTrendingUp />
+                  <p className="px-2 text-sm"> + 2 % </p>
+                </div>
+              </div>
+              <div className="row-span-1"> </div>
+              <div className="row-span-1"> </div>
+              <div className="row-span-1">
+                <div className="flex flex-col justify-start p-2 ">
+                  <span className="text-3xl mb-1">2 </span>
+                  <span className="text-md text-gray-400"> Total Items</span>
+                </div>
+              </div>
+            </div>
+            <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1">
+              <div className="row-span-1">
+                <div className="flex justify-end p-2 text-green-500 text-xl ">
+                  <FiTrendingUp />
+                  <p className=" px-2 text-sm"> + 2 % </p>
                 </div>
               </div>
               <div className="row-span-1"> </div>
@@ -76,25 +128,12 @@ function Dashboard() {
             </div>
             <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1">
               <div className="row-span-1">
-                <div className="flex justify-end p-2 text-green-500 text-sm ">
-                  <i data-feather="chevron-up" className="text-xs "></i>
-                  <p className=""> + 2 % </p>
-                </div>
-              </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1"> </div>
-              <div className="row-span-1">
-                <div className="flex flex-col justify-start p-2 ">
-                  <span className="text-3xl mb-1">7 </span>
-                  <span className="text-md text-gray-400"> scans today</span>
-                </div>
-              </div>
-            </div>
-            <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1">
-              <div className="row-span-1">
-                <div className="flex justify-end p-2 text-green-500 text-sm ">
-                  <i data-feather="chevron-up" className="text-xs "></i>
-                  <p className=""> + 2 % </p>
+                <div className="flex justify-end p-2 text-red-500 text-xl  ">
+                  <span className="px-2 test-lg">
+                     <FiTrendingDown />
+                  </span>
+
+                  <p className="text-sm"> - 2 % </p>
                 </div>
               </div>
               <div className="row-span-1"> </div>
@@ -115,14 +154,14 @@ function Dashboard() {
             } `}
           >
             <div className="bg-white flex-1 w-full  lg:w-2/3 overflow-auto mr-2 ml-2 my-2 rounded-lg shadow-lg">
-              <MyChartComponent />
+              <StackedChart data={chartData} />
             </div>
 
             <div className="shadow-lg w-full lg:w-1/3 bg-white px-5 mx-2 my-2 rounded-lg ">
               <p className="text-gray-700 pt-5 text-md font-bold p-2">
                 Percentage of fake scans
               </p>
-              <RadialChart />
+              <RadialChart data={radialChartData} />
             </div>
           </div>
           <div

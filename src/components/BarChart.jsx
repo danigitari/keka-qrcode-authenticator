@@ -6,8 +6,7 @@ import { useState, useEffect } from "react";
 function BarChart({ data }) {
   return (
     <div>
-      {" "}
-      <Bar data={data} />{" "}
+      <Bar data={data} />
     </div>
   );
 }
