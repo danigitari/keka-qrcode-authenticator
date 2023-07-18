@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { InputElement } from "./InputElement";
 import { TextArea } from "./TextArea";
-import { FileUpload } from "primereact/fileupload";
+
 
 export function AddForm({ onSubmit, data }) {
   const [name, setName] = useState(data?.type);
@@ -12,17 +12,8 @@ export function AddForm({ onSubmit, data }) {
   return (
     <>
       <div className="grid grid-cols-6 ">
-        <div className="col-span-6 md:col-span-3 p-5">
-          <InputElement
-            type="text"
-            label="Item Id"
-            placeHolder="Id of sticker attached "
-            required={true}
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-          />
-        </div>
-        <div className="col-span-6 md:col-span-3 p-5">
+
+        <div className="col-span-6  p-2">
           <InputElement
             type="text"
             label="Item Name"
@@ -33,9 +24,9 @@ export function AddForm({ onSubmit, data }) {
           />
         </div>
 
-        <div className="col-span-6 md:col-span-3 p-5">
+        <div className="col-span-6  p-2">
           <div className=" card text-sm flex justify-content-center">
-            <div className="mb-3">
+            <div className="mb-3 w-full">
               <label className="block mb-1 text-sm font-semibold  text-gray-600">
                 Upload item image
               </label>
@@ -50,7 +41,7 @@ export function AddForm({ onSubmit, data }) {
             </div>
           </div>
         </div>
-        <div className="col-span-6 p-5">
+        <div className="col-span-6 p-2">
           <TextArea
             type="text"
             label=" Description"

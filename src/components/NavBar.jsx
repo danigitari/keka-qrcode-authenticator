@@ -1,33 +1,22 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Button } from "primereact/button";
 import { Avatar } from "primereact/avatar";
 import { Menu } from "primereact/menu";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { BiLogOut } from "react-icons/bi";
+import { logout } from "../api/services.js";
 
-function NavBar() {
+function Navbar() {
   const Navigate = useNavigate();
   const menuRight = useRef(null);
+  const { user } = useAuthContext();
   const items = [
-    {
-      label: "Email",
-      icon: "pi pi-refresh",
-      command: () => {
-        toast.current.show({
-          severity: "success",
-          summary: "Updated",
-          detail: "Data Updated",
-        });
-      },
-    },
+
     {
       label: "Logout",
-      icon: "pi pi-times",
+      icon: <BiLogOut />,
       command: () => {
-        toast.current.show({
-          severity: "warn",
-          summary: "Delete",
-          detail: "Data Deleted",
-        });
+        handleLogout();
       },
     },
   ];
@@ -35,11 +24,15 @@ function NavBar() {
   const handleLogout = async () => {
     try {
       await logout();
+      localStorage.removeItem("token");
       Navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
+  useEffect(() => {
+    console.log(user);
+  }, []);
 
   return (
     <>
@@ -62,7 +55,7 @@ function NavBar() {
               aria-haspopup
             />
             <Menu model={items} popup ref={menuRight} />
-            <span className="text-gray-500"> asjkdfna;sdjkf</span>
+            <span className="text-gray-500"> { user ? ( user.user?.email ) : null } </span>
           </div>
         </div>
       </div>
@@ -70,4 +63,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Navbar;

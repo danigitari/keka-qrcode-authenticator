@@ -13,7 +13,11 @@ export function Modal({ visible, setVisible, header, children }) {
     <Dialog
       header={header}
       visible={_visible}
-      style={{ width: "50vw" }}
+      className={` ${
+        header === "Add New Item" || header === "Edit"
+          ? "w-[35vw]"
+          : "w-[50vw]"
+      } `}
       onHide={() => {
         _setVisible(false), setVisible(false);
       }}

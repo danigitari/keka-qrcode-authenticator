@@ -1,7 +1,6 @@
-import React from "react";
 
 function Editor() {
-  return <div></div>;
+  return <div> hello</div>;
 }
 
 export default Editor;

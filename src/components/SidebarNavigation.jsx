@@ -4,11 +4,16 @@ import { useState, useEffect } from "react";
 import Navbar from "./NavBar.jsx";
 
 function SidebarNavigation() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [width, setWidth] = useState();
   const location = useLocation();
+
   useEffect(() => {
-    console.log(location.pathname);
-  }, [location]);
+    setWidth(window.innerWidth);
+    if (width > 1000) {
+      setOpen(true);
+    }
+  }, []);
 
   const Menus = [
     { title: "Dashboard", src: "file-text", route: "/dashboard" },
@@ -16,15 +21,10 @@ function SidebarNavigation() {
     { title: "Groups ", src: "layers", route: "/dashboard/groups" },
     { title: "Orders ", src: "list", route: "/dashboard/orders" },
     {
-      title: "Asset Manager",
-      src: "folder",
-      gap: true,
-      route: "/dashboard/asset-manager",
-    },
-    {
-      title: "Content Editor ",
+      title: "Editor ",
       src: "file",
-      route: "/dashboard/content-editor",
+      gap: true,
+      route: "/dashboard/editor",
     },
   ];
   useEffect(() => {
@@ -54,10 +54,10 @@ function SidebarNavigation() {
             />
           </div>
           <div className="flex flex-col justify-between w-full pt-6 text-white">
-            {Menus.map((Menu, index) => (
+            {Menus.map((Menu) => (
               <div className="">
                 <NavLink
-                  key={index}
+                  key={Menu.title}
                   to={Menu.route}
                   className={({ isActive }) =>
                     isActive
@@ -86,7 +86,6 @@ function SidebarNavigation() {
             open ? "hidden md:block" : "block"
           } overflow-auto w-full`}
         >
-          
           <Navbar />
           <div className="bg-gray-200">
             <Outlet />

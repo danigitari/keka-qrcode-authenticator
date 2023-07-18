@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Table } from "./Table.jsx";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiChevronRight } from "react-icons/bi";
@@ -23,7 +23,7 @@ function Groups() {
               <p className="text-xl flex items-center">
                 <BiChevronRight />
               </p>
-              {location.pathname.slice(1).replace("/", "  / ")}
+              {location.pathname.slice(1).replace("/", " / ")}
             </p>
           </span>
         </div>

@@ -13,6 +13,7 @@ export default {
         sm: "480px",
         md: "720px",
         lg: "976px",
+        xlg:"1200px",
         xl: "1440px",
         "2xl": "1536px",
       },
@@ -23,5 +24,5 @@ export default {
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
 };

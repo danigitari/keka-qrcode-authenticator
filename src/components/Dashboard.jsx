@@ -3,28 +3,30 @@ import "../index.css";
 import { Table } from "./Table.jsx";
 import { useState, useEffect } from "react";
 import { BiChevronRight, BiRefresh } from "react-icons/bi";
-import { FiTrendingUp , FiTrendingDown} from "react-icons/fi";
+import { FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 import RadialChart from "./RadialChart";
 import { StackedChart } from "./Chart.jsx";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 function Dashboard() {
   const [open, setOpen] = useState(false);
   const [chartData, setChartData] = useState({});
   const [radialChartData, setRadialChartData] = useState({});
+const { user } = useAuthContext();
+  
 
   useEffect(() => {
-    feather.replace();
     const documentStyle = getComputedStyle(document.documentElement);
+
     const data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: ["January", "February", "March", "April", "May", "June", "July" , "August" , "September", "October", "November", "December"],
       datasets: [
         {
           type: "bar",
           label: "Number of Scans",
           backgroundColor: documentStyle.getPropertyValue("--blue-500"),
-          data: [50, 25, 12, 48, 90, 76, 42],
+          data: [50, 25, 12, 48, 90, 76, 42 , 50 , 25, 12, 48, 90],
         },
-
       ],
     };
     const radialData = {
@@ -46,7 +48,7 @@ function Dashboard() {
       ],
     };
     setChartData(data);
-    setRadialChartData(radialData)
+    setRadialChartData(radialData);
   }, []);
 
   return (
@@ -71,13 +73,16 @@ function Dashboard() {
             <p className="pl-1 pr-2"> Refresh</p>
           </button>
         </div>
+        {user ? (
+          <div className="flex px-4 text-gray-500 text-xl">
+            Hello {"  "}
+            {  user.user?.name.charAt(0).toUpperCase() + user.user?.name.slice(1)}
+            👋
+          </div>
+        ) : null}
+
         <div className=" bg-gray-200">
-          <div
-            className={` ${
-              open ? " hidden sm:flex " : "flex "
-            } flex flex-row flex-wrap justify-around `}
-          ></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-items-center ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xlg:grd-cols-2 place-items-center ">
             <div className="row-span-1 lg:row-span-2  grid grid-row-4 shadow-md h-32 w-[250px] my-5 rounded-lg bg-white sm:m-3 lg:m-0 lg:my-1 ">
               <div className="row-span-1">
                 <div className="flex justify-end p-2 text-green-500 text-xl ">
@@ -106,7 +111,7 @@ function Dashboard() {
               <div className="row-span-1">
                 <div className="flex flex-col justify-start p-2 ">
                   <span className="text-3xl mb-1">2 </span>
-                  <span className="text-md text-gray-400"> Total Items  </span>
+                  <span className="text-md text-gray-400"> Total Items </span>
                 </div>
               </div>
             </div>
@@ -130,7 +135,7 @@ function Dashboard() {
               <div className="row-span-1">
                 <div className="flex justify-end p-2 text-red-500 text-xl  ">
                   <span className="px-2 test-lg">
-                     <FiTrendingDown />
+                    <FiTrendingDown />
                   </span>
 
                   <p className="text-sm"> - 2 % </p>
@@ -183,6 +188,7 @@ function Dashboard() {
                   "Numbers of Fake Scans",
                   "Last Update",
                 ]}
+
               />
             </div>
             <div className="w-full  ">

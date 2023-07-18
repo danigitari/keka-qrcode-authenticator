@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import SidebarNavigation from "./components/SidebarNavigation.jsx";
 import Login from "./components/Login.jsx";
-import { AuthContextProvider } from "./context/authContext.jsx";
+import { AuthContextProvider } from "./context/AuthContext.jsx";
 import Register from "./components/Register.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Items from "./components/Items.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import Orders from "./components/Orders.jsx";
-import Editor from "./components/Editor.jsx";
+import  Editor  from "./components/Editor.jsx";
 import Groups from "./components/Groups.jsx";
 
 function App() {
@@ -59,10 +59,10 @@ function App() {
                 }
               ></Route>
               <Route
-                path="/dashboard/content-editor"
+                path="/dashboard/editor"
                 element={
                   <ProtectedRoute>
-                    <Editor.jsx/>
+                    <Editor/>
                   </ProtectedRoute>
                 }
               ></Route>

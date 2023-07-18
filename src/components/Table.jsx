@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { AiOutlineSearch } from "react-icons/ai";
 
-export function Table({ name, columns, data, onEdit, onDelete }) {
+export function Table({ name, columns, data, onEdit, onDelete , onView }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [editModal, setEditModal] = useState(false);
@@ -94,7 +94,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
       <button
         className="text-white bg-red-500 text-md rounded-full shadow-md py-2 px-6 flex gap-x-2"
         onClick={() => {
-          setIsLoading(true), deleteItem(rowData);
+          onDelete(rowData);
         }}
       >
         {isLoading ? (
@@ -122,6 +122,16 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
       </button>
     );
   };
+    const viewActionBodyTemplate = (rowData) => {
+      return (
+        <button
+          className="text-white bg-green-500 text-md rounded-full shadow-md py-2 px-6"
+          onClick={() => onView(rowData)}
+        >
+         View 
+        </button>
+      );
+    };
 
   const refreshOnUpdateData = () => {
     if (localStorage.getItem("reloaded")) {
@@ -201,14 +211,23 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
               sortable
               filterPlaceholder="Search by name"
               style={{
-                minWidth: "9rem",
+                minWidth: "5rem",
                 fontSize: "0.9rem",
                 fontWeight: "500",
               }}
             />
           ))}
+          {name !== "Scans" && name !== "Groups" ? (
+            <Column
+              header="View"
+              body={viewActionBodyTemplate}
+              exportable={false}
+              style={{ minWidth: "6rem" }}
+              className="text-sm"
+            ></Column>
+          ) : null}
 
-          {name !== "Scans" ? (
+          {name !== "Scans" && name !== "Groups" ? (
             <Column
               header="Edit"
               body={editActionBodyTemplate}
@@ -217,7 +236,7 @@ export function Table({ name, columns, data, onEdit, onDelete }) {
               className="text-sm"
             ></Column>
           ) : null}
-          {name !== "Scans" ? (
+          {name !== "Scans" && name !== "Groups" ? (
             <Column
               header="Delete"
               body={deleteActionBodyTemplate}
