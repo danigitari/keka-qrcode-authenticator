@@ -1,12 +1,10 @@
 import { useRef } from "react";
-import { UserAuth } from "../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "primereact/button";
 import { Avatar } from "primereact/avatar";
 import { Menu } from "primereact/menu";
 
 function NavBar() {
-  const { user, logout } = UserAuth();
   const Navigate = useNavigate();
   const menuRight = useRef(null);
   const items = [

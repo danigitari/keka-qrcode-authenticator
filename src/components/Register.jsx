@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { UserAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../api/axios.js";
 
@@ -14,7 +13,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault()
      try {
-      await axios.post('/register', { name ,email, password })
+      await axios.post('/register', { name ,email, password  })
       Navigate("/dashboard");
     } catch (error) {
     
